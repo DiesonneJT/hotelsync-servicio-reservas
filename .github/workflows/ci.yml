@@ -1,0 +1,19 @@
+name: CI - servicio-reservas
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'servicio-reservas/**'
+      - '.github/workflows/reusable-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'servicio-reservas/**'
+
+jobs:
+  ci:
+    uses: ./.github/workflows/reusable-ci.yml
+    with:
+      service: servicio-reservas
+    secrets: inherit
